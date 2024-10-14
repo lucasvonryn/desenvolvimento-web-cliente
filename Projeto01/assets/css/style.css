@@ -65,6 +65,10 @@ main {
     font-family: var(--content-font);
 }
 
+#start img{
+    width: 25%;
+}
+
 footer {
     background-color: var(--dark-gray-color);
     height: 10em;
