@@ -78,8 +78,22 @@ main {
     display: flex;
 }
 
+#start {
+    margin-bottom: 5%;
+}
+
+#start .content {
+    align-items: center;
+}
+
 #start img {
     width: 25%;
+    margin-right: 2em;
+    margin-top: 1em;
+}
+
+#about {
+    margin-bottom: 5%;
 }
 
 #contact {
