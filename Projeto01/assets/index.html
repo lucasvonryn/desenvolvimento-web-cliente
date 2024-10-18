@@ -55,28 +55,39 @@
         </div>
 
         <div id="contact">
-            <div class="contact-form">
+            <form action="https://dainf.pg.utfpr.edu.br/professores/luizr/send_mail.php" autocomplete="on" method="post">
                 <legend>Contate-nos</legend>
 
-                <div class="form-group">
-                    <label for="complete-name">Nome completo</label>
-                    <input type="text" name="complete-name" id="complete-name">
-                </div>
+                <div id="form">
+                    <div class="form-group">
+                        <label for="complete-name">Nome</label>
+                        <input type="text" name="nome" id="complete-name" placeholder="Nome">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="event-category">Assunto</label>
+                        <select id="event-category">
+                            <option name = "assunto" value="Suporte">Suporte</option>
+                            <option name = "assunto" value="Contrato">Contrato</option>
+                            <option name = "assunto" value="Serviços">Serviços</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email">
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <input type="text" name="mensagem" id="message" id="message">
+                    </div>
+                    
+                    <div id="send-form">
+                        <input type="submit" name="Enviar" id="send-button">
+                    </div>
                 </div>
-
-                <div>
-
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Mensagem</label>
-                    <input type="text" name="message" id="message">
-                </div>
-            </div>
+            </form>   
         </div>
     </main>
 
