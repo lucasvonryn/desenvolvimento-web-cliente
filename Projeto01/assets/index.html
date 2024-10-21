@@ -72,10 +72,11 @@
     
                     <div class="form-group">
                         <label for="event-category">Assunto</label>
-                        <select id="event-category">
-                            <option name = "assunto" value="Suporte">Suporte</option>
-                            <option name = "assunto" value="Contrato">Contrato</option>
-                            <option name = "assunto" value="Serviços">Serviços</option>
+                        <select id="event-category" name="assunto" required>
+                            <option value="default" selected disabled>---</option>
+                            <option value="Suporte">Suporte</option>
+                            <option value="Contrato">Contrato</option>
+                            <option value="Serviços">Serviços</option>
                         </select>
                     </div>
 
