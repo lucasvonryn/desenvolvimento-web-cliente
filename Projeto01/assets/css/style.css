@@ -30,6 +30,18 @@ header {
     font-family: var(--title-font);
 }
 
+h1 {
+    margin: 1em 0;
+}
+
+.dark-background {
+    background-color: var(--dark-gray-color);
+}
+
+.light-background {
+    background-color: var(--white-color);
+}
+
 #menu {
     width: 98%;
     display: flex;
@@ -75,15 +87,8 @@ main {
 }
 
 .content {
-    display: flex;
-}
-
-#start {
-    margin-bottom: 5%;
-}
-
-#start .content {
-    align-items: center;
+    width: 1200px;
+    margin: auto;
 }
 
 #start img {
@@ -92,13 +97,64 @@ main {
     margin-top: 1em;
 }
 
-#about {
-    margin-bottom: 5%;
+#images {
+    height: 20em;
+    display: flex;
+    justify-content: center;
+}
+
+.slider { 
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    margin-top: 2em;
+    position: relative;
+    justify-content: center;
+}
+
+.slider img {
+    margin: auto;
+    padding: 1.2em;
+    height: 80%;
+    width: 80%;
+    vertical-align: top;
+    position: absolute;
+}
+
+table {
+    margin: 2em 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table caption {
+    text-align: left;
+    margin: 5px 0;
+}
+
+table thead {
+    text-align: center;
+}
+
+table tr, td, th{
+    border: 1px solid black;
+}
+
+table tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+table th {
+    padding: 3px 0;
+}
+
+table td {
+    padding: 5px;
 }
 
 #contact {
     height: 30em;
-    background-color: var(--dark-gray-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,6 +198,5 @@ form input {
 }
 
 footer {
-    background-color: var(--light-blue-color);
     height: 10em;
 }
