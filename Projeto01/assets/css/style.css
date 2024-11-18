@@ -30,6 +30,22 @@ header {
     font-family: var(--title-font);
 }
 
+h1 {
+    margin: 1em 0;
+}
+
+p {
+    margin-bottom: 2em;
+}
+
+.dark-background {
+    background-color: var(--dark-gray-color);
+}
+
+.light-background {
+    background-color: var(--white-color);
+}
+
 #menu {
     width: 98%;
     display: flex;
@@ -40,7 +56,7 @@ header {
 #menu h1 {
     display: flex;
     align-items: center;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 #menu nav {
@@ -58,18 +74,135 @@ header {
     margin: 0 0.4em;
 }
 
+#menu a:hover {
+    color: gray;
+}
+
 main {
-    width: 80%;
-    display: block;
-    margin: 2em auto;
+    margin: auto;
     font-family: var(--content-font);
 }
 
-#start img{
+#text {
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.content {
+    width: 1200px;
+    margin: auto;
+}
+
+#start div {
+    display: flex;
+}
+
+#start img {
     width: 25%;
+    margin-right: 2em;
+    margin-top: 1em;
+}
+
+#images {
+    height: 25em;
+    display: flex;
+    justify-content: center;
+}
+
+.slider { 
+    margin-top: 3em;
+    display: flex;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider img {
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    position: absolute;
+}
+
+table {
+    margin: 2em 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table caption {
+    text-align: left;
+    margin: 5px 0;
+}
+
+table thead {
+    text-align: center;
+}
+
+table tr, td, th{
+    border: 1px solid black;
+}
+
+table tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+table th {
+    padding: 3px 0;
+}
+
+table td {
+    padding: 5px;
+}
+
+#contact {
+    height: 30em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 1em;
+    height: 70%;
+    width: 40%;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form legend {
+    padding-top: 1em;
+    font-size: 1.8em;
+    display: block;
+    height: 20%;
+}
+
+#form {
+    width: 60%;
+    margin: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    height: 2em;
+    border-radius: 5px;
+}
+
+#message {
+    height: 6em;
 }
 
 footer {
-    background-color: var(--dark-gray-color);
     height: 10em;
 }
