@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <form action="">
+    <div id="form">
+        <div class="form-group">
+            <label for="number-one">N1</label>
+            <input type="number" name="numero1" id="number1" placeholder="N1">
+        </div>
+        <div id="form">
+            <div class="form-group">
+                <label for="number-two">N2</label>
+                <input type="number" name="numero2" id="number2" placeholder="N2">
+            </div>
+
+        <div class="form-group">
+            <label for="calc-opt">Opção de Cálculo</label>
+            <select id="calc-opt" name="opcao" required>
+                <option value="Soma">Soma</option>
+                <option value="Subtração">Subtração</option>
+                <option value="Multiplicação">Multiplicação</option>
+                <option value="Divisão">Divisão</option>
+            </select>
+        </div>
+
+        <div id="send-form">
+            <input type="button" onclick="calcular()" value="Calcular">
+        </div>
+    </form>
+        <script>
+            function calcular()
+            {
+                let numero1 = parseFloat(document.getElementById('number1').value)
+                let numero2 = parseFloat(document.getElementById('number2').value)
+                //let numerotwo = document.querySelector
+                let opcao = document.getElementById('calc-opt').value
+                let resultado
+
+                switch(opcao) {
+
+                    case 'Soma':
+                        resultado = numero1 + numero2;
+                        break;
+                    case 'Subtração':
+                        resultado = numero1 - numero2;
+                        break;
+                    case 'Multiplicação':
+                        resultado = numero1 * numero2;
+                        break;
+                    case 'Divisão':
+                        resultado = numero1 / numero2;
+                        break;
+                    default:
+                        resultado = 0;
+                }
+
+                alert("O resultado é: " + resultado)
+            }
+        </script>
+</body>
+</html>
