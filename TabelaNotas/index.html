@@ -3,34 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Tabela de Notas</title>
 </head>
 <body>
     <form action="">
-    <div id="form">
-        <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" placeholder="Nome">
-        </div>
         <div id="form">
             <div class="form-group">
-                <label for="number">Nota</label>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label for="numero">Nota</label>
                 <input type="number" name="numero" id="numero" placeholder="Nota">
             </div>
 
-        <div id="send-form">
-            <input type="button" onclick="inserir()" value="Inserir">
+            <div id="send-form">
+                <input type="button" onclick="inserir()" value="Inserir">
+            </div>
         </div>
     </form>
-        <script>
-            function inserir(){
-                let nome = document.getElementById('nome').value
-                let numero = parseInt(document.getElementById('numero').value)
-            }
 
-            function excluir(){
-                
+    <!-- Tabela para exibir os dados inseridos -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nota</th>
+                <th></th> <!-- Cabeçalho vazio para o botão -->
+            </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+            <!-- As linhas da tabela serão inseridas aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        function inserir() {
+            let nome = document.getElementById('nome').value;
+            let numero = parseInt(document.getElementById('numero').value);
+
+            // Verificar se nome e nota são válidos
+            if (nome && !isNaN(numero)) {
+                // Criar uma nova linha na tabela
+                let tabela = document.getElementById('tabela-corpo');
+                let novaLinha = tabela.insertRow();
+
+                // Adicionar células na nova linha
+                let celulaNome = novaLinha.insertCell(0);
+                let celulaNota = novaLinha.insertCell(1);
+                let celulaBotao = novaLinha.insertCell(2); // Célula para o botão
+
+                // Preencher as células com os dados inseridos
+                celulaNome.innerText = nome;
+                celulaNota.innerText = numero;
+
+                // Criar o botão "X" na terceira célula
+                let botaoExcluir = document.createElement('button');
+                botaoExcluir.innerText = 'X';
+                botaoExcluir.onclick = function() {
+                    excluir(novaLinha); // Passa a linha para a função excluir
+                };
+                celulaBotao.appendChild(botaoExcluir); // Adiciona o botão à célula
+
+                // Limpar os campos após inserir
+                document.getElementById('nome').value = '';
+                document.getElementById('numero').value = '';
+            } else {
+                alert("Por favor, insira um nome e uma nota válidos.");
             }
-        </script>
+        }
+
+        function excluir(linha) {
+            // Remove a linha da tabela
+            linha.remove();
+        }
+    </script>
 </body>
 </html>
