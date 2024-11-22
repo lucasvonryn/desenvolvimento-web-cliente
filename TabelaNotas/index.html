@@ -17,6 +17,7 @@
                 <input type="number" name="numero" id="numero" placeholder="Nota">
             </div>
 
+            <!-- É recomendado alterar o onclick por addEventListener e também utilizar querySelector -->
             <div id="send-form">
                 <input type="button" onclick="inserir()" value="Inserir">
             </div>
@@ -45,6 +46,7 @@
             // Criar uma nova linha na tabela
             let tabela = document.getElementById('tabela-corpo');
             let novaLinha = tabela.insertRow();
+            // Também é possível utilizar innerhtml
 
             // Insere as 3 células na linha criada
             let celulaNome = novaLinha.insertCell(0);
