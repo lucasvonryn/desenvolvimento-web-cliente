@@ -4,10 +4,15 @@ document.getElementById("form-login").addEventListener("submit", function (e) {
     const email = document.getElementById("email-login").value;
     const senha = document.getElementById("senha-login").value;
 
-    const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+    const usuariosSalvos = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const usuarioExistente = usuariosSalvos.find(
+        (usuario) => usuario.email === email && usuario.senha === senha
+    );
 
-    if (usuarioSalvo && email === usuarioSalvo.email && senha === usuarioSalvo.senha) {
-        window.location.href = "/Projeto02/Principal/principal.html"; 
+    if (usuarioExistente) {
+        
+        localStorage.setItem("usuario", JSON.stringify(usuarioExistente));
+        window.location.href = "/Projeto02/Principal/principal.html";
     } else {
         alert("Email ou senha incorretos!");
     }
