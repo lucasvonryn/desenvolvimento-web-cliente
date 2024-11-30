@@ -12,24 +12,30 @@ const usuarioLogado = JSON.parse(localStorage.getItem("usuario"));
 
 if (!usuarioLogado) {
   alert("Você precisa estar logado para acessar esta página.");
-  window.location.href = "/Projeto02/Login/login.html"; 
+  window.location.href = "/Projeto02/Login/login.html";
 }
 
-let items;
+const usuarioEmail = usuarioLogado.email;  
+
+let items = [];
 
 btnNew.onclick = () => {
   if (descItem.value === "" || amount.value === "" || type.value === "") {
     return alert("Preencha todos os campos!");
   }
 
-  items.push({
+  const item = {
     desc: descItem.value,
     amount: Math.abs(amount.value).toFixed(2),
     type: type.value,
-    user: usuarioLogado.nome,
-  });
+    user: usuarioEmail,
+  };
 
-  setItensBD();
+  items = getItensBD(usuarioEmail);
+
+  items.push(item);
+
+  setItensBD(usuarioEmail, items);
 
   loadItens();
 
@@ -39,7 +45,7 @@ btnNew.onclick = () => {
 
 function deleteItem(index) {
   items.splice(index, 1);
-  setItensBD();
+  setItensBD(usuarioEmail, items);
   loadItens();
 }
 
@@ -49,11 +55,7 @@ function insertItem(item, index) {
   tr.innerHTML = `
     <td>${item.desc}</td>
     <td>R$ ${item.amount}</td>
-    <td class="columnType">${
-      item.type === "Entrada"
-      ? '<i class="fas fa-e"></i>' 
-      : '<i class="fas fa-s"></i>' 
-    }</td>
+    <td class="columnType">${item.type === "Entrada" ? '<i class="fas fa-e"></i>' : '<i class="fas fa-s"></i>'}</td>
     <td class="columnAction">
       <button onclick="deleteItem(${index})"><i class="fas fa-trash"></i></button>
     </td>
@@ -63,32 +65,20 @@ function insertItem(item, index) {
 }
 
 function loadItens() {
-  items = getItensBD();
-  tbody.innerHTML = "";
+  items = getItensBD(usuarioEmail);
+  tbody.innerHTML = ""; 
   items.forEach((item, index) => {
     insertItem(item, index);
   });
-
   getTotals();
 }
 
 function getTotals() {
-  const amountIncomes = items
-    .filter((item) => item.type === "Entrada")
-    .map((transaction) => Number(transaction.amount));
+  const amountIncomes = items.filter(item => item.type === "Entrada").map(item => Number(item.amount));
+  const amountExpenses = items.filter(item => item.type === "Saída").map(item => Number(item.amount));
 
-  const amountExpenses = items
-    .filter((item) => item.type === "Saída")
-    .map((transaction) => Number(transaction.amount));
-
-  const totalIncomes = amountIncomes
-    .reduce((acc, cur) => acc + cur, 0)
-    .toFixed(2);
-
-  const totalExpenses = Math.abs(
-    amountExpenses.reduce((acc, cur) => acc + cur, 0)
-  ).toFixed(2);
-
+  const totalIncomes = amountIncomes.reduce((acc, cur) => acc + cur, 0).toFixed(2);
+  const totalExpenses = Math.abs(amountExpenses.reduce((acc, cur) => acc + cur, 0)).toFixed(2);
   const totalItems = (totalIncomes - totalExpenses).toFixed(2);
 
   incomes.innerHTML = totalIncomes;
@@ -96,8 +86,13 @@ function getTotals() {
   total.innerHTML = totalItems;
 }
 
-const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
-const setItensBD = () =>
-  localStorage.setItem("db_items", JSON.stringify(items));
+const getItensBD = (email) => {
+  const data = JSON.parse(localStorage.getItem(`db_items_${email}`));
+  return data ? data : [];
+};
+
+const setItensBD = (email, items) => {
+  localStorage.setItem(`db_items_${email}`, JSON.stringify(items));
+};
 
 loadItens();
