@@ -55,7 +55,7 @@ function insertItem(item, index) {
   tr.innerHTML = `
     <td>${item.desc}</td>
     <td>R$ ${item.amount}</td>
-    <td class="columnType">${item.type === "Entrada" ? '<i class="fas fa-e"></i>' : '<i class="fas fa-s"></i>'}</td>
+    <td class="columnType">${item.type === "Entrada" ? '<i class="fa-solid fa-circle-arrow-up" style="color: #63E6BE;"></i>' : '<i class="fa-solid fa-circle-arrow-down" style="color: #ea3939;"></i>'}</td>
     <td class="columnAction">
       <button onclick="deleteItem(${index})"><i class="fas fa-trash"></i></button>
     </td>
