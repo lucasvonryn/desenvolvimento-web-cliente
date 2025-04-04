@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                Logo
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PREÇOS</a></li>
+                    <li><a href="#">CADASTRO</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="form">
+            <div class="container">
+                <h2>Cadastro para Contato</h2>
+                
+                <form action="/submit" method="POST" class="floating-label">
+                    <fieldset>
+                        <legend>Dados Pessoais</legend>
+                        
+                        <div class="row">
+                            <label for="name">Nome <br>
+                                <input type="text" id="name" name="name" required>
+                            </label>
+                            
+                            <label for="email">E-mail <br>
+                                <input type="email" id="email" name="email" required>
+                            </label>
+                        </div>
+                        
+                        <div class="row">
+                            <label for="cpf">CPF <br>
+                                <input type="text" id="cpf" name="cpf" required>
+                            </label>
+                            
+                            <label for="birthday">Data de Nascimento <br>
+                                <input type="date" id="birthday" name="birthday" required>
+                            </label>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Dados de Endereço</legend>
+                    
+                        <div class="row">
+                            <label for="cep">CEP <br>
+                                <input type="text" id="cep" name="cep" required>
+                            </label>
+                           
+                            <label for="uf">UF <br>
+                                <select name="uf" id="uf">
+                                    <option value="">Selecione</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="SP">SP</option>
+                                </select>
+                            </label>
+                           
+                            <label for="city">Cidade <br>
+                                <input type="text" id="city" name="city">
+                            </label>
+                        </div>
+                    
+                        <div class="row">
+                            <label for="address">Endereço <br>
+                                <input type="text" id="address" name="address">
+                            </label>
+                            
+                            <label for="number">Número <br>
+                                <input type="text" id="number" name="number">
+                            </label>
+                        </div>
+                    </fieldset>
+                    
+                    <div class="buttons">
+                        <button type="submit">Enviar</button>
+                        <button type="reset">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column one</th>
+                            <th>Column two</th>
+                            <th>Column three</th>
+                            <th>Column four</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">Link one</a></td>
+                            <td><a href="#">Link five</a></td>
+                            <td><a href="#">Link nine</a></td>
+                            <td><a href="#">Link thirteen</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Link two</a></td>
+                            <td><a href="#">Link six</a></td>
+                            <td><a href="#">Link ten</a></td>
+                            <td><a href="#">Link fourteen</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Link three</a></td>
+                            <td><a href="#">Link seven</a></td>
+                            <td><a href="#">Link eleven</a></td>
+                            <td><a href="#">Link fifteen</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Link four</a></td>
+                            <td><a href="#">Link eight</a></td>
+                            <td><a href="#">Link twelve</a></td>
+                            <td><a href="#">Link sixteen</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>© 2024 Your Website. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
